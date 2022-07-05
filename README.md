@@ -14,8 +14,20 @@ Document Server (distributed as ONLYOFFICE Docs starting from v.6.0) and Nextclo
 1. Get the latest version of this repository running the command:
 
     ```
-    git clone https://github.com/ONLYOFFICE/docker-onlyoffice-nextcloud
+    git clone https://github.com/surichard/docker-onlyoffice-nextcloud
     cd docker-onlyoffice-nextcloud
+    ```
+
+SSL
+To enable SSL encryption, create wwwcerts folder and copy the private key named as key.key and the certificate named as chain.crt to it.
+Run this command:
+
+    ```
+    ./nginx/wwwcerts/
+    
+    nginx.conf
+    ssl_certificate     /etc/nginx/certs/chain.crt;
+    ssl_certificate_key /etc/nginx/certs/key.key;
     ```
 
 2. Run Docker Compose:
