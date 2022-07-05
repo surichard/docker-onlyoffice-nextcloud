@@ -22,12 +22,12 @@ SSL
 To enable SSL encryption, create wwwcerts folder and copy the private key named as key.key and the certificate named as chain.crt to it.
 Run this command:
 
-
+    ``
         ./nginx/wwwcerts/
         nginx.conf
         ssl_certificate     /etc/nginx/certs/chain.crt;
         ssl_certificate_key /etc/nginx/certs/key.key;
-
+    ``
 
 2. Run Docker Compose:
 
