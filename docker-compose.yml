@@ -12,6 +12,8 @@ services:
   onlyoffice-document-server:
     container_name: onlyoffice-document-server
     image: onlyoffice/documentserver:latest
+    environment:
+      - USE_UNAUTHORIZED_STORAGE=true
     restart: always
     expose:
       - '80'
@@ -27,7 +29,9 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/wwwcerts:/etc/nginx/certs:ro
+      - ./nginx/nginx-ssl.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/common.conf:/etc/nginx/common.conf:ro
       - app_data:/var/www/html
   mysql:
     image: mysql:${MYSQL_VERSION}
