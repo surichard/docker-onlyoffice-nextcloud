@@ -1,0 +1,29 @@
+version: "3"
+services:  
+  
+  mysql:
+    image: mysql:${MYSQL_VERSION}
+    ports:
+      - "${MYSQL_HOST_PORT}:3306"
+    privileged: true
+    volumes:
+      - ${MYSQL_CONF_FILE}:/etc/mysql/conf.d/mysql.cnf:ro
+      - ${MYSQL_DATA_DIR}:/var/lib/mysql/:rw
+      - ${MYSQL_INITDB_FILE}:/docker-entrypoint-initdb.d/init_db.sql
+    restart: always
+    networks:
+      - default
+    environment:
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+  phpmyadmin:
+      image: phpmyadmin/phpmyadmin:latest
+      ports:
+        - "${PHPMYADMIN_HOST_PORT}:80"
+      networks:
+        - default
+      environment:
+        - PMA_HOST=mysql
+        - PMA_PORT=3306
+
+networks:
+  default:
