@@ -23,8 +23,7 @@ To enable SSL encryption, create wwwcerts folder and copy the private key named 
 Run this command:
 
 
-    ./nginx/wwwcerts/
-    nginx.conf
+    copy ssl chain and key files to ./certs/
     ssl_certificate     /etc/nginx/certs/chain.crt;
     ssl_certificate_key /etc/nginx/certs/key.key;
 
