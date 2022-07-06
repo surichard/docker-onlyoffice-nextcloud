@@ -28,6 +28,8 @@ Run this command:
     ssl_certificate     /etc/nginx/certs/chain.crt;
     ssl_certificate_key /etc/nginx/certs/key.key;
 
+    docker-compose -f docker-compose.yml -f ssl.yml -f mysql.yml up -d
+
 2. Run Docker Compose:
 
     **Please note**: the action must be performed with **root** rights.
