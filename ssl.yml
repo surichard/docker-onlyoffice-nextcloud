@@ -5,5 +5,5 @@ services:
       - USE_UNAUTHORIZED_STORAGE=true
   nginx:
     volumes:
-      - ./nginx/wwwcerts:/etc/nginx/certs:ro
+      - ./certs:/etc/nginx/certs:ro
       - ./nginx/nginx-ssl.conf:/etc/nginx/nginx.conf:ro
